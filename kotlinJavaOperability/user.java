@@ -1,3 +1,6 @@
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,14 +15,14 @@ public class User {
 
 
 
-    public User(String firstName, String lastname){
+    public User(String firstName, String lastname ){
         this.firstName = firstName;
-        this.lastName = lastName;
     }
 
     public User(){
 
     }
+    @Nullable
     public String getFirstName() {
         return firstName;
     }
@@ -27,7 +30,7 @@ public class User {
     public void setFirstName(String firstName) {
         this.firstName = firstName;
     }
-
+    @Nullable
     public String getLastName() {
         return lastName;
     }
@@ -51,7 +54,7 @@ public class User {
     public void setCountry(String country) {
         this.country = country;
     }
-
+    @NotNull
     public List<Address> getAddresses(){
         return addresses;
     }
@@ -62,8 +65,8 @@ public class User {
     public String allAddresses(){
         StringBuilder builder = new StringBuilder();
         for(Address address: addresses){
-            builder.append(address.getAddressType().name()).append("adress: \n");
-            builder.append(labelPrinter.labelFor(this, address.getAddressType()));
+            builder.append(address.addressType.name() + "address:\n");
+            builder.append(labelPrinter.labelFor(this, address.addressType));
         }
         return builder.toString();
     }
@@ -72,6 +75,6 @@ public class User {
     public String toString() {
         return UserExtensions.getFullName(this) +
                 " - Addresses: " + addresses.size() + "\n" +
-                allAddresses();
+                this.allAddresses();
     }
 }
