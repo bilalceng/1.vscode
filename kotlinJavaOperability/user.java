@@ -13,6 +13,7 @@ public class User {
 
     private List<Address> addresses = new ArrayList<>();
 
+    private  List<CreditCard> creditCards  = new ArrayList<>();
 
 
     public User(String firstName, String lastname ){
@@ -60,6 +61,12 @@ public class User {
     }
     public void setAddresses(List<Address> AddressList){
         this.addresses = AddressList;
+    }
+
+    public List<CreditCard> getCreditCards(){return creditCards;}
+
+    public void setCreditCards(List<CreditCard> creditCards) {
+        this.creditCards = creditCards;
     }
 
     public String allAddresses(){

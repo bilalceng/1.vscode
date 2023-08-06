@@ -40,6 +40,30 @@ class JavaApplication {
         System.out.println(Address.addCanadian(AddressType.Gift));
         System.out.println(Address.street);
 
+        CreditCard card1 = new CreditCard(
+                "123456",
+                "7",
+                "2024",
+                "9999"
+        );
+
+        CreditCard card2 = new CreditCard(
+                "123456",
+                "7",
+                "2025",
+                "9999"
+        );
+        CreditCard card3 = new CreditCard(
+                "123456",
+                "10",
+                "2023",
+                "9999"
+        );
+
+        UserExtensions.addValidCreditCard(user,card1);
+        UserExtensions.addValidCreditCard(user,card2);
+        UserExtensions.addValidCreditCard(user,card3);
+        System.out.println(user.getCreditCards().size());
 
     }
 }
